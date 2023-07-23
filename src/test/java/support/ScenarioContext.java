@@ -6,9 +6,7 @@ import java.util.Map;
 
 public class ScenarioContext {
     private final Map<String, Object> scenarioContext;
-
     public static ScenarioContext BASE_INSTANCE = null;
-
     public ScenarioContext() {
         scenarioContext = new HashMap<>();
     }

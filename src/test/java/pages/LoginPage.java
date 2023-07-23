@@ -5,27 +5,27 @@ import org.openqa.selenium.WebDriver;
 import support.CommonSteps;
 
 public class LoginPage extends CommonSteps {
-    By TXT_USERNAME = By.cssSelector("[id='user-name']");
-    By TXT_PASSWORD = By.cssSelector("[id='password']");
-    By BTN_LOGIN = By.cssSelector("[id='login-button']");
+  private final By TXT_USERNAME = By.cssSelector("[id='user-name']");
+  private final By TXT_PASSWORD = By.cssSelector("[id='password']");
+  private final By BTN_LOGIN = By.cssSelector("[id='login-button']");
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+  public LoginPage(WebDriver driver) {
+    super(driver);
+  }
 
-    public void inputUserName(String userName) {
-        enterText(webDriver, TXT_USERNAME, userName);
-    }
+  public void inputUserName(String userName) {
+    enterText(webDriver, TXT_USERNAME, userName);
+  }
 
-    public void inputPassword(String password) {
-        enterText(webDriver, TXT_PASSWORD, password);
-    }
+  public void inputPassword(String password) {
+    enterText(webDriver, TXT_PASSWORD, password);
+  }
 
-    public void clickLoginButton() {
-        click(webDriver, BTN_LOGIN);
-    }
+  public void clickLoginButton() {
+    click(webDriver, BTN_LOGIN);
+  }
 
-    public void openWebPage(String url) {
-        webDriver.get(url);
-    }
+  public void openWebPage(String url) {
+    webDriver.get(url);
+  }
 }

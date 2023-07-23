@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import support.CommonSteps;
 
-
 public class ThankYouPage extends CommonSteps {
 
     public ThankYouPage(WebDriver driver) {
@@ -14,6 +13,6 @@ public class ThankYouPage extends CommonSteps {
 
     public void verifyTitlePage(By lblThankYou) {
         String title = getText(webDriver, lblThankYou);
-        Assert.assertEquals("Verify title is display correctly", "THANK YOU FOR YOUR ORDER", title);
+        Assert.assertEquals("Verify title is display correctly", "Thank you for your order!", title);
     }
 }
