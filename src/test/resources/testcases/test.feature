@@ -5,8 +5,7 @@ Feature: As a developer
     Given I open the web base
 
   Scenario Outline: I want to login to the system successfully
-    Given I input username is "standard_user"
-    And I input password is "secret_sauce"
+    Given I input credential with username is "standard_user"
     When I click on the login button
     Then I am on the home page
     When I add "Sauce Labs Backpack" product to cart

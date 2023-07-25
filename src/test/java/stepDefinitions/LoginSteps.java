@@ -1,10 +1,18 @@
 package stepDefinitions;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import net.minidev.json.parser.ParseException;
+import org.eclipse.jetty.server.Authentication;
 import pages.LoginPage;
 import support.BaseStep;
+import utils.Credential;
+import utils.User;
+import utils.UserHelpers;
+
+import java.io.FileNotFoundException;
 
 public class LoginSteps {
   LoginPage loginPage = BaseStep.getInstance().getLoginPage();
@@ -14,18 +22,14 @@ public class LoginSteps {
     loginPage.openUrl("https://www.saucedemo.com/");
   }
 
-  @And("I input username is {string}")
-  public void iInputUsernameIs(String userName) {
-    loginPage.inputUserName(userName);
-  }
-
-  @And("I input password is {string}")
-  public void iInputPasswordIs(String password) {
-    loginPage.inputPassword(password);
-  }
-
   @When("I click on the login button")
   public void iClickOnTheLoginButton() {
     loginPage.clickLoginButton();
+  }
+
+  @Given("I input credential with username is {string}")
+  public void iInputCredentialWithUsernameIs(String userName) throws Exception {
+    User user = UserHelpers.inputUser(userName);
+    loginPage.inputCredential(new Credential(user.username, user.password));
   }
 }

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import support.CommonSteps;
+import utils.Credential;
 
 public class LoginPage extends CommonSteps {
   private final By TXT_USERNAME = By.cssSelector("[id='user-name']");
@@ -13,19 +14,12 @@ public class LoginPage extends CommonSteps {
     super(driver);
   }
 
-  public void inputUserName(String userName) {
-    enterText(webDriver, TXT_USERNAME, userName);
-  }
-
-  public void inputPassword(String password) {
-    enterText(webDriver, TXT_PASSWORD, password);
-  }
-
   public void clickLoginButton() {
     click(webDriver, BTN_LOGIN);
   }
 
-  public void openWebPage(String url) {
-    webDriver.get(url);
+  public void inputCredential(Credential credential) {
+    enterText(webDriver, TXT_USERNAME, credential.getUsername());
+    enterText(webDriver, TXT_PASSWORD, credential.getPassword());
   }
 }
