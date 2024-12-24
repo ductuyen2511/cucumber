@@ -1,8 +1,8 @@
 package utils;
 
 public class Credential {
-  private String username;
-  private String password;
+  private final String username;
+  private final String password;
 
   public Credential(String username, String password) {
     this.username = username;
