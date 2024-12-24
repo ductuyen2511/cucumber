@@ -30,6 +30,7 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.awaitility:awaitility:4.2.0'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.18.2'
 
 
 }

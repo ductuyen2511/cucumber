@@ -2,22 +2,21 @@ package utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import net.minidev.json.parser.JSONParser;
 
-import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 public class UserHelpers {
-    static ObjectMapper mapper = null;
-    public static JSONParser parser = new JSONParser();
+    static ObjectMapper objectMapper = new ObjectMapper();;
+    public static String json = "src/test/resources/stubdata/testDatas/userColection.json";
 
     public static User inputUser(String userName) throws Exception {
-        String data = parser.parse(new FileReader(System.getProperty("user.dir") + "\\src\\test\\resources\\stubdata\\testDatas\\userColection.json")).toString();
-        mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        UserCollection userCollection = mapper.readValue(data, UserCollection.class);
+        String jsonContent = new String(Files.readAllBytes(Paths.get(json)));
+        objectMapper.registerModule(new JavaTimeModule());
+        UserCollection userCollection = objectMapper.readValue(jsonContent, UserCollection.class);
         List<User> users = userCollection.users.stream()
                 .filter(user -> user.username.equalsIgnoreCase(userName))
                 .collect(Collectors.toList());
