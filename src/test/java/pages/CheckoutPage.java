@@ -3,9 +3,9 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import support.CommonSteps;
+import utils.DriverUtil;
 
-public class CheckoutPage extends CommonSteps {
+public class CheckoutPage extends DriverUtil {
 
   public CheckoutPage(WebDriver driver) {
     super(driver);

@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import support.CommonSteps;
+import utils.DriverUtil;
 
-public class HomePage extends CommonSteps {
+public class HomePage extends DriverUtil {
   public HomePage(WebDriver driver) {
     super(driver);
   }
